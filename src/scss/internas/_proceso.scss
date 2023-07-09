@@ -1,0 +1,45 @@
+@use '../base/variables' as v;
+@use '../base/mixins.scss' as m;
+
+.contenido-procesos{
+    margin-bottom: 2rem;
+    @include m.tablet{
+
+        display: flex;
+        gap: v.$separacion;
+        align-items: center;
+        
+    }
+    &:last-of-type{
+        margin-bottom: 0;
+    }
+    &:nth-child(even){// even son numero pares y odd impares 
+        .text-proceso{
+            order: 1;
+        }
+        .img-proceso{
+            order: 2;
+        }
+    }
+    
+    .img-proceso,
+    .text-proceso{
+        flex: 1;
+    }
+
+    .text-proceso{
+        margin-top: 1rem;
+        h3{
+            margin:0;
+            text-align: left;
+            color: v.$primario;
+            &::after{
+                content: '';
+                display: block;
+                width: 50%;
+                height: 5px;
+                background-color: v.$secundario;
+            }
+        }
+    }
+}
